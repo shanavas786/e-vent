@@ -219,9 +219,8 @@ void loop() {
       break;
   
     case HOLD_IN_STATE:
-      if (enteringState) {
-        enteringState = false;
-      }
+      enteringState = false;
+
       if (now() - tCycleTimer > tHoldIn) {
         pressureReader.set_plateau();
         setState(EX_STATE);
@@ -240,9 +239,7 @@ void loop() {
       break;
 
     case PEEP_PAUSE_STATE:
-      if (enteringState) {
-        enteringState = false;
-      }
+      enteringState = false;
       
       if (now() - tCycleTimer > tEx + MIN_PEEP_PAUSE) {
         pressureReader.set_peep();
@@ -252,9 +249,7 @@ void loop() {
       break;
 
     case HOLD_EX_STATE:
-      if (enteringState) {
-        enteringState = false;
-      }
+      enteringState = false;
 
       // Check if patient triggers inhale
       patientTriggered = pressureReader.get() < (pressureReader.peep() - knobs.ac()) 
