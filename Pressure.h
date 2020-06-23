@@ -49,8 +49,8 @@ public:
     // read the voltage
     int V = analogRead(sense_pin_); 
 
-    float Pmin = -100.0;   // pressure max in mbar
-    float Pmax = 100.0;    // pressure min in mbar
+    float Pmin = -100.0;   // pressure min in mbar
+    float Pmax = 100.0;    // pressure max in mbar
     float Vmax = 1024;     // max voltage in range from analogRead
     // convert to pressure
     float pres = (10 * V/Vmax - 1) * (Pmax-Pmin)/8. + Pmin; //mmHg
